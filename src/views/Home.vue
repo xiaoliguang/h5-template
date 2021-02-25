@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="test">
         home
     </div>
 </template>
@@ -14,4 +14,8 @@ export default {
     created() {}
 };
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.test{
+    .hide-text()
+}
+</style>
