@@ -1,5 +1,5 @@
 <template>
-    <div class="test">
+    <div>
         home
     </div>
 </template>
@@ -11,11 +11,10 @@ export default {
     computed: {},
     components: {},
     methods: {},
-    created() {}
+    created() {
+        dd
+    }
 };
 </script>
 <style lang="less" scoped>
-.test{
-    .hide-text()
-}
 </style>

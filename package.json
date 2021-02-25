@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
+    "dev": "vue-cli-service serve --copy",
     "dev:test": "vue-cli-service serve --mode test",
+    "inspect":"vue inspect > output.js",
     "build": "vue-cli-service build"
   },
   "dependencies": {
