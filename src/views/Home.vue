@@ -11,10 +11,7 @@ export default {
     computed: {},
     components: {},
     methods: {},
-    created() {
-        dd
-    }
+    created() {}
 };
 </script>
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>
