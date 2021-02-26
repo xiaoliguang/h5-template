@@ -6,13 +6,7 @@ export const isDevelopment = process.env.NODE_ENV === "development";
 export const isPre = ''
 export const isProduction = ''
 let baseURL, loading;
-if (isDevelopment) {
-    baseURL = "";
-} else if (isPre) {
-    baseURL = "";
-} else {
-    baseURL = "";
-}
+
 function getCommonParams() {
     const ck = getCk() || "";
     return {
@@ -20,20 +14,23 @@ function getCommonParams() {
     };
 }
 
+// process.env.VUE_APP_BASE_URL 这个就是我们创建的环境变量文件里面的参数
+baseURL = process.env.VUE_APP_BASE_URL;
+
 const Ajax = axios.create({
     baseURL,
     withCredentials: true, // 表示跨域请求时是否需要使用凭证
-    //   headers: {
-    //     'Content-Type': 'application/x-www-form-urlencoded'
-    //   },
+    headers: {
+        'Content-Type': 'application/json'
+    },
     params: {
         ID: "axios default params"
     },
     data: {
         firstName: "axios default data"
     },
-    timeout: 10 * 1000
-});
+    timeout: 60 * 1000
+});  
 // 自定义参数
 const customizedData = {
     isShowLoading: true // 是否显示loading

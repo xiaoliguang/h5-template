@@ -1,11 +1,15 @@
 {
-  "name": "seed-h5-base",
+  "name": "h5-template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
+    "dev": "vue-cli-service serve --mode test",
     "dev:test": "vue-cli-service serve --mode test",
-    "build": "vue-cli-service build"
+    "dev:prod": "vue-cli-service serve --mode production",
+    "build": "vue-cli-service build --mode production",
+    "build:dev": "vue-cli-service build --mode development",
+    "build:test": "vue-cli-service build --mode test",
+    "build:prod": "vue-cli-service build --mode production"
   },
   "dependencies": {
     "axios": "^0.21.1",

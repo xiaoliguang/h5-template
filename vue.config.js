@@ -1,9 +1,13 @@
 const path = require("path");
 
+function resolve (dir) {
+    return path.join(__dirname, dir)
+}
+
 module.exports = {
     // 部署生产环境和开发环境下的URL。
     // 默认情况下，Vue CLI 会假设你的应用是被部署在一个域名的根路径上
-    publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
+    publicPath: process.env.NODE_ENV === "production" ? "https://pubser-res.zhenai.com/h5/dating/" : "/",
     // 在npm run build 或 yarn build 时 ，生成文件的目录名称（要和baseUrl的生产环境路径一致）（默认dist）
     outputDir: "dist",
     // 用于放置生成的静态资源 (js、css、img、fonts) 的；（项目打包之后，静态资源会放在这个文件夹下）
@@ -16,7 +20,18 @@ module.exports = {
             patterns: [path.resolve(__dirname, "./src/styles/lib-mixins.less")],//引入全局less文件
         }
     },
-
+    lintOnSave: true,
+    chainWebpack: (config) => {
+        config.resolve.alias
+        .set('@', resolve('src'))
+        .set('~assets', resolve('./assets'))
+        .set('~pages', resolve('src/pages'))
+        .set('~components', resolve('src/components'))
+        .set('~view', resolve('src/view'))
+        .set('~api', resolve('src/api'))
+        .set('~utils', resolve('src/utils'))
+        .set('~store', resolve('src/store'))
+    }
 };
 // 多页面配置
 // https://cli.vuejs.org/zh/config/#pages
