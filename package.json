@@ -9,7 +9,8 @@
     "build": "vue-cli-service build --mode production",
     "build:dev": "vue-cli-service build --mode development",
     "build:test": "vue-cli-service build --mode test",
-    "build:prod": "vue-cli-service build --mode production"
+    "build:prod": "vue-cli-service build --mode production",
+    "inspect": "vue inspect > output.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -23,6 +24,7 @@
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "compression-webpack-plugin": "^6.1.1",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "style-resources-loader": "^1.4.1",

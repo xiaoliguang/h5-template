@@ -1,4 +1,7 @@
 const path = require("path");
+const webpack = require("webpack");
+const CompressionWebpackPlugin = require("compression-webpack-plugin");
+const productionGzipExtensions = ["js", "css"];
 
 function resolve (dir) {
     return path.join(__dirname, dir)
@@ -13,11 +16,11 @@ module.exports = {
     // 用于放置生成的静态资源 (js、css、img、fonts) 的；（项目打包之后，静态资源会放在这个文件夹下）
     assetsDir: "static",
     // 如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。
-    productionSourceMap: process.env.NODE_ENV === "development",
+    productionSourceMap: false,
     pluginOptions: {
         "style-resources-loader": {
             preProcessor: "less",
-            patterns: [path.resolve(__dirname, "./src/styles/lib-mixins.less")],//引入全局less文件
+            patterns: [path.resolve(__dirname, "./src/styles/lib-mixins.less")] //引入全局less文件
         }
     },
     lintOnSave: true,
@@ -31,6 +34,23 @@ module.exports = {
         .set('~api', resolve('src/api'))
         .set('~utils', resolve('src/utils'))
         .set('~store', resolve('src/store'))
+    },
+    configureWebpack: {
+        externals: {
+            vue: "Vue",
+            vuex: "Vuex",
+            "vue-router": "VueRouter",
+            axios: "axios"
+        },
+        plugins: [
+            // 配置compression-webpack-plugin压缩 注意，7.x版本的都有问题
+            new CompressionWebpackPlugin({
+                algorithm: "gzip",
+                test: /\.js/,
+                threshold: 10240,  //只处理比这个值大的资源。按字节计算
+                minRatio: 0.8  //只有压缩率比这个值小的资源才会被处理
+            })
+        ]
     }
 };
 // 多页面配置
