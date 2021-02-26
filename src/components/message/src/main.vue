@@ -1,36 +1,20 @@
 <template>
     <transition name="el-message-fade" @after-leave="handleAfterLeave">
-        <div
-            v-show="visible"
-            :class="[
-                'el-message',
-                type ? `el-message--${type}` : '',
-                center ? 'is-center' : '',
-                showClose ? 'is-closable' : '',
-                customClass
-            ]"
-            :style="positionStyle"
-            @mouseenter="clearTimer"
-            @mouseleave="startTimer"
-        >
+        <div v-show="visible" :class="['el-message', type ? `el-message--${type}` : '', center ? 'is-center' : '', showClose ? 'is-closable' : '', customClass]" :style="positionStyle" @mouseenter="clearTimer" @mouseleave="startTimer">
             <slot>
                 <p v-if="!dangerouslyUseHTMLString" class="el-message__content">
                     {{ message }}
                 </p>
                 <p v-else class="el-message__content" v-html="message" />
             </slot>
-            <i
-                v-if="showClose"
-                class="el-message__closeBtn el-icon-close"
-                @click="close"
-            />
+            <i v-if="showClose" class="el-message__closeBtn el-icon-close" @click="close" />
         </div>
     </transition>
 </template>
 
 <script>
 export default {
-    name: "",
+    name: '',
     directives: {},
     components: {},
     mixins: [],
@@ -38,60 +22,60 @@ export default {
     data() {
         return {
             visible: false,
-            message: "",
+            message: '',
             duration: 3000,
-            customClass: "",
-            type: "info",
+            customClass: '',
+            type: 'info',
             timer: null,
             verticalOffset: 20,
             onClose: null,
             dangerouslyUseHTMLString: false,
             center: false,
             showClose: true
-        };
+        }
     },
     computed: {
         positionStyle() {
             return {
                 top: `${this.verticalOffset}px`
-            };
+            }
         }
     },
     mounted() {
-        this.startTimer();
-        document.addEventListener("keydown", this.keydown);
+        this.startTimer()
+        document.addEventListener('keydown', this.keydown)
     },
     beforeDestroy() {
-        document.removeEventListener("keydown", this.keydown);
+        document.removeEventListener('keydown', this.keydown)
     },
     methods: {
         handleAfterLeave() {
-            this.$destroy(true);
-            this.$el.parentNode.removeChild(this.$el);
+            this.$destroy(true)
+            this.$el.parentNode.removeChild(this.$el)
         },
         close() {
-            this.visible = false;
+            this.visible = false
         },
         clearTimer() {
-            clearTimeout(this.timer);
+            clearTimeout(this.timer)
         },
         startTimer() {
             if (this.duration > 0) {
                 this.timer = setTimeout(() => {
-                    this.visible = false;
-                }, this.duration);
+                    this.visible = false
+                }, this.duration)
             }
         },
         keydown(e) {
             if (e.keyCode === 27) {
                 // esc 关闭消息
                 if (!this.closed) {
-                    this.visible = false;
+                    this.visible = false
                 }
             }
         }
     }
-};
+}
 </script>
 
 <style lang="less" scoped>

@@ -19,14 +19,14 @@
             });
             // 打桩示例
             var d = {
-                id:111, 
+                id:111,
                 dwcId: 888,
                 AShareCode:6
             }
             this.pushData(313, '点击列表推广弹窗', d );
-        },  
+        },
         methods: {
-            
+
         },
     }
 </script>

@@ -1,33 +1,22 @@
 <template>
-    <div>
-
-    </div>
+    <div></div>
 </template>
 
 <script>
 export default {
-    name:"",
-    directives:{
+    name: "",
+    directives: {},
+    components: {},
+    mixins: [],
+    props: {},
+    data() {
+        return {};
     },
-    components: {
-    },
-    mixins:[],
-    props:{
-    },
-    data () {
-        return {
-
-        }
-    },
-    computed: {
-    },
-    mounted () {},
-    beforeDestroy () {},
-    methods: {
-    }
-}
+    computed: {},
+    mounted() {},
+    beforeDestroy() {},
+    methods: {}
+};
 </script>
 
-<style lang="less" scoped type="text/less">
-
-</style>
+<style lang="less" scoped type="text/less"></style>
