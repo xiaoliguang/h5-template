@@ -30,7 +30,7 @@ module.exports = {
             // 配置compression-webpack-plugin压缩 注意，7.x版本的都有问题
             new CompressionWebpackPlugin({
                 algorithm: "gzip",
-                test: /\.js/,
+                test: /\.js/,  // todo css
                 threshold: 10240,  //只处理比这个值大的资源。按字节计算
                 minRatio: 0.8  //只有压缩率比这个值小的资源才会被处理
             })

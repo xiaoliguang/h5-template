@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import plugins from "@/plugins"
+// import clickoutside from '@/directive/clickoutside'
 import "./styles/lib-reset.css"
 
 // todo 自动引入
@@ -18,7 +19,7 @@ Vue.use(install)
 Vue.use(plugins)
 
 console.log('process.env.NODE_ENV：'+process.env.NODE_ENV);
-
+// Vue.directive(clickoutside)
 Vue.config.productionTip = false
 
 new Vue({
