@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="animate__animated animate__bounce">
         home
     </div>
 </template>
@@ -14,4 +14,6 @@ export default {
     created() {}
 };
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+
+</style>
