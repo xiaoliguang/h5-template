@@ -2,7 +2,6 @@ const path = require("path");
 const webpack = require("webpack");
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 const productionGzipExtensions = ["js", "css"];
-
 function resolve (dir) {
     return path.join(__dirname, dir)
 }
@@ -65,6 +64,11 @@ module.exports = {
                 test: /\.js/,  // todo css
                 threshold: 10240,  //只处理比这个值大的资源。按字节计算
                 minRatio: 0.8  //只有压缩率比这个值小的资源才会被处理
+            }),
+            new webpack.DefinePlugin({
+                "process.env":{
+                    ZONE:JSON.stringify(process.env.ZONE)
+                }
             })
         ]
     }

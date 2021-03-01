@@ -1,5 +1,5 @@
 <template>
-    <div class="animate__animated animate__bounce">
+    <div class="">
         home
     </div>
 </template>

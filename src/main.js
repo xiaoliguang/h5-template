@@ -23,7 +23,7 @@ Vue.use(install)
 Vue.use(directive)
 Vue.use(plugins)
 
-console.log('process.env.NODE_ENV：' + process.env.NODE_ENV)
+// console.log('process.env.NODE_ENV：' + process.env.NODE_ENV)
 Vue.config.productionTip = false
 
 new Vue({

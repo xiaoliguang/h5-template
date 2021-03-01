@@ -13,9 +13,9 @@
 import { login } from '@/api/login'
 export default {
     mounted() {
-        login('admin', 'admin123')
-
-
+        login('admin', 'admin123').then(res=>{
+            // console.log(res);
+        })
         // Ajax({
         //     method: 'post',
         //     url: 'login?username=admin&password=admin123',
