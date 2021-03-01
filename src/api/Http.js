@@ -5,7 +5,8 @@ import Message from "@/components/message";
 export const isDevelopment = process.env.NODE_ENV === "development";
 export const isPre = ''
 export const isProduction = ''
-let baseURL, loading;
+
+let loading;
 
 function getCommonParams() {
     const ck = getCk() || "";
@@ -14,23 +15,21 @@ function getCommonParams() {
     };
 }
 
-// process.env.VUE_APP_BASE_URL 这个就是我们创建的环境变量文件里面的参数
-baseURL = process.env.VUE_APP_BASE_URL;
+
 
 const Ajax = axios.create({
-    baseURL,
-    withCredentials: true, // 表示跨域请求时是否需要使用凭证
+    baseURL:process.env.VUE_APP_BASE_API,
     headers: {
         'Content-Type': 'application/json'
     },
     params: {
-        ID: "axios default params"
+        // ID: "axios default params"
     },
     data: {
-        firstName: "axios default data"
+        // firstName: "axios default data"
     },
     timeout: 60 * 1000
-});  
+});
 // 自定义参数
 const customizedData = {
     isShowLoading: true // 是否显示loading
@@ -49,12 +48,12 @@ Ajax.interceptors.request.use(
         }
         if (config.method === "get") {
             config.params = {
-                ...getCommonParams(),
+                // ...getCommonParams(),
                 ...config.params
             };
         } else {
             config.data = {
-                ...getCommonParams(),
+                // ...getCommonParams(),
                 ...config.data
             };
         }
@@ -71,13 +70,15 @@ Ajax.interceptors.response.use(
     response => {
         loading && loading.close();
         const res = response.data;
-        if (res.status === "96") {
-            return Message(res.message);
+        // if (res.status === "96") {
+        //     return Message(res.message);
+        // }
+        // if (res.status === "214") {
+        //     return Message("登录态过期请重新登录");
+        // }
+        if(res.code === '200'){
+            return res.data;
         }
-        if (res.status === "214") {
-            return Message("登录态过期请重新登录");
-        }
-        return res.data;
     },
     () => {
         loading && loading.close();

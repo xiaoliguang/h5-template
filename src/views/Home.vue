@@ -6,14 +6,12 @@
 <script>
 export default {
     data() {
-        return {};
+        return {}
     },
     computed: {},
     components: {},
     methods: {},
-    created() {}
-};
+    mounted() {}
+}
 </script>
-<style lang="less" scoped>
-
-</style>
+<style lang="less" scoped></style>
