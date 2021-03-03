@@ -6,7 +6,7 @@
  * <button v-pushData="{accessPoint:'123',accessPointDesc:'测试push按钮',extData:{id:456}}">
  * ```
  */
-import pushData from '@/assets/js/monitor'
+import pushData from '@/assets/js/data-tracking'
 export default {
     inserted(el, binding) {
         el.handler = () => {

@@ -12,7 +12,7 @@ import message from '@/components/message/src/main.js'
 import loading from '@/components/loading/src/main.js'
 import Backtop from '@/components/backtop/index.js'
 
-import monitor from '@/assets/js/monitor.js'
+import monitor from '@/assets/js/data-tracking.js'
 
 Vue.component(Backtop.name, Backtop)
 const install = function(Vue) {

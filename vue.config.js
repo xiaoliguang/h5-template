@@ -29,7 +29,8 @@ const cdn = {
         // vuex/3.1.0/vuex.min.js
         // vue-router/3.2.0/vue-router.min.js
         // axios/0.21.1/axios.min.js
-        js: ['https://pubser-res.zhenai.com/other/temp/202102/26/11101318973478.js', 'https://pubser-res.zhenai.com/other/temp/202102/26/11105565662339.js', 'https://pubser-res.zhenai.com/other/temp/202102/26/11112935442940.js', 'https://pubser-res.zhenai.com/other/temp/202102/26/11115141766711.js']
+        // cookie/js-cookie@2.2.1
+        js: ['https://pubser-res.zhenai.com/other/temp/202102/26/11101318973478.js', 'https://pubser-res.zhenai.com/other/temp/202102/26/11105565662339.js', 'https://pubser-res.zhenai.com/other/temp/202102/26/11112935442940.js', 'https://pubser-res.zhenai.com/other/temp/202102/26/11115141766711.js','https://pubser-res.zhenai.com/other/temp/202103/02/17354792658134.js']
     }
 }
 module.exports = {
