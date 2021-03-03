@@ -5,8 +5,8 @@ import store from './store'
 import directive from './directive'
 import plugins from '@/plugins'
 import './styles/lib-reset.css'
+// todo css tree shake
 import './styles/animate.css'
-
 // todo 自动引入
 import message from '@/components/message/src/main.js'
 import loading from '@/components/loading/src/main.js'

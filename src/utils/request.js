@@ -1,7 +1,7 @@
 import axios from 'axios'
 import qs from 'qs'
 import CryptoJS from './md5.js'
-
+let isDev = process.env.NODE_ENV === 'development'
 /*  todo 计算签名
 let handleData = function(data) {
     return qs.stringify(data).replace(/[&|=]/g, '')
@@ -26,7 +26,7 @@ const service = axios.create({
     baseURL: process.env.VUE_APP_BASE_API,
     headers: {
         'Content-Type': 'application/json',
-        zone:process.env.ZONE || ''
+        zone: process.env.ZONE || ''
     },
     timeout: 60 * 1000
 })
@@ -51,5 +51,20 @@ service.interceptors.response.use(
         return Promise.reject(error)
     }
 )
+
+window.addEventListener('error', error => {
+    if(isDev) return
+    service({
+        url: '/error/report',
+        method: 'post',
+        data: {
+            message: error.message,
+            UA: navigator.userAgent,
+            url: location.href,
+            filename: error.filename
+            // params
+        }
+    })
+})
 
 export default service
